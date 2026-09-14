@@ -1019,9 +1019,14 @@
 
 <script>
 const heroEl = document.querySelector('.hero');
-const heroBgVariant = Math.floor(Math.random() * 3);
-if (heroBgVariant === 1) heroEl.classList.add('bg-b');
-if (heroBgVariant === 2) heroEl.classList.add('bg-c');
+const heroBgClasses = ['', 'bg-b', 'bg-c'];
+let heroBgIndex = Math.floor(Math.random() * heroBgClasses.length);
+if (heroBgClasses[heroBgIndex]) heroEl.classList.add(heroBgClasses[heroBgIndex]);
+setInterval(() => {
+  if (heroBgClasses[heroBgIndex]) heroEl.classList.remove(heroBgClasses[heroBgIndex]);
+  heroBgIndex = (heroBgIndex + 1) % heroBgClasses.length;
+  if (heroBgClasses[heroBgIndex]) heroEl.classList.add(heroBgClasses[heroBgIndex]);
+}, 8000);
 
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
