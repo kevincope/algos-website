@@ -359,6 +359,18 @@
     font-style: italic; font-weight: 300;
     color: var(--ink-light); font-size: 0.95rem;
   }
+  .advisors-list { display: grid; gap: 0; }
+  .advisor-row {
+    display: block; padding: 0.9rem 0;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none; color: inherit;
+    font-size: 0.95rem;
+  }
+  .advisors-list .advisor-row:first-child { border-top: 1px solid var(--line); }
+  .advisor-row:hover .advisor-name { text-decoration: underline; text-decoration-color: var(--amber-deep); }
+  .advisor-name { font-weight: 700; color: var(--white); }
+  .advisor-title { color: var(--amber); }
+  .advisor-role { color: var(--ink-light); font-weight: 300; }
   .board-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -856,54 +868,30 @@
     </div>
 
     <div class="tier-label" data-i18n="board.advisors_label">Board of Advisors</div>
-    <div class="board-grid">
-      <a href="https://law.washu.edu/directory/profile/jens-frankenreiter/" class="board-card" target="_blank" rel="noopener">
-        <div class="board-monogram">JF</div>
-        <div class="board-name">Jens Frankenreiter</div>
-        <div class="board-title" data-i18n="board.adv1_title">Treiman Professor of Law</div>
-        <div class="board-role">Washington University in St. Louis School of Law</div>
+    <div class="advisors-list">
+      <a href="https://law.washu.edu/directory/profile/jens-frankenreiter/" class="advisor-row" target="_blank" rel="noopener">
+        <span class="advisor-name">Jens Frankenreiter</span>, <span class="advisor-title" data-i18n="board.adv1_title">Treiman Professor of Law</span>, <span class="advisor-role">Washington University in St. Louis School of Law</span>
       </a>
-      <a href="https://law.washu.edu/directory/profile/jonathan-choi/" class="board-card" target="_blank" rel="noopener">
-        <div class="board-monogram">JC</div>
-        <div class="board-name">Jonathan Choi</div>
-        <div class="board-title" data-i18n="board.adv2_title">James Carr Professor of Law</div>
-        <div class="board-role">Washington University in St. Louis School of Law</div>
+      <a href="https://law.washu.edu/directory/profile/jonathan-choi/" class="advisor-row" target="_blank" rel="noopener">
+        <span class="advisor-name">Jonathan Choi</span>, <span class="advisor-title" data-i18n="board.adv2_title">James Carr Professor of Law</span>, <span class="advisor-role">Washington University in St. Louis School of Law</span>
       </a>
-      <a href="https://en.law.huji.ac.il/people/renana-keydar" class="board-card" target="_blank" rel="noopener">
-        <div class="board-monogram">RK</div>
-        <div class="board-name">Renana Keydar</div>
-        <div class="board-title" data-i18n="board.adv3_title">Professor of Law</div>
-        <div class="board-role">Hebrew University of Jerusalem Faculty of Law</div>
+      <a href="https://en.law.huji.ac.il/people/renana-keydar" class="advisor-row" target="_blank" rel="noopener">
+        <span class="advisor-name">Renana Keydar</span>, <span class="advisor-title" data-i18n="board.adv3_title">Professor of Law</span>, <span class="advisor-role">Hebrew University of Jerusalem Faculty of Law</span>
       </a>
-      <a href="https://researchprofiles.ku.dk/en/persons/henrik-palmer-olsen/" class="board-card" target="_blank" rel="noopener">
-        <div class="board-monogram">HO</div>
-        <div class="board-name">Henrik Palmer Olsen</div>
-        <div class="board-title" data-i18n="board.adv4_title">Professor of Jurisprudence</div>
-        <div class="board-role">University of Copenhagen Faculty of Law</div>
+      <a href="https://researchprofiles.ku.dk/en/persons/henrik-palmer-olsen/" class="advisor-row" target="_blank" rel="noopener">
+        <span class="advisor-name">Henrik Palmer Olsen</span>, <span class="advisor-title" data-i18n="board.adv4_title">Professor of Jurisprudence</span>, <span class="advisor-role">University of Copenhagen Faculty of Law</span>
       </a>
-      <a href="https://lawecon.ethz.ch/group/professors/ash.html" class="board-card" target="_blank" rel="noopener">
-        <div class="board-monogram">EA</div>
-        <div class="board-name">Elliott Ash</div>
-        <div class="board-title" data-i18n="board.adv5_title">Associate Professor of Law, Economics, and Data Science</div>
-        <div class="board-role">ETH Zurich Center for Law &amp; Economics</div>
+      <a href="https://lawecon.ethz.ch/group/professors/ash.html" class="advisor-row" target="_blank" rel="noopener">
+        <span class="advisor-name">Elliott Ash</span>, <span class="advisor-title" data-i18n="board.adv5_title">Associate Professor of Law, Economics, and Data Science</span>, <span class="advisor-role">ETH Zurich Center for Law &amp; Economics</span>
       </a>
-      <a href="https://law.umn.edu/profiles/daniel-schwarcz" class="board-card" target="_blank" rel="noopener">
-        <div class="board-monogram">DS</div>
-        <div class="board-name">Daniel Schwarcz</div>
-        <div class="board-title" data-i18n="board.adv6_title">Fredrikson &amp; Byron Professor of Law</div>
-        <div class="board-role">University of Minnesota Law School</div>
+      <a href="https://law.umn.edu/profiles/daniel-schwarcz" class="advisor-row" target="_blank" rel="noopener">
+        <span class="advisor-name">Daniel Schwarcz</span>, <span class="advisor-title" data-i18n="board.adv6_title">Fredrikson &amp; Byron Professor of Law</span>, <span class="advisor-role">University of Minnesota Law School</span>
       </a>
-      <a href="https://law.stanford.edu/julian-nyarko/" class="board-card" target="_blank" rel="noopener">
-        <div class="board-monogram">JN</div>
-        <div class="board-name">Julian Nyarko</div>
-        <div class="board-title" data-i18n="board.adv7_title">Professor of Law</div>
-        <div class="board-role">Stanford Law School</div>
+      <a href="https://law.stanford.edu/julian-nyarko/" class="advisor-row" target="_blank" rel="noopener">
+        <span class="advisor-name">Julian Nyarko</span>, <span class="advisor-title" data-i18n="board.adv7_title">Professor of Law</span>, <span class="advisor-role">Stanford Law School</span>
       </a>
-      <a href="https://www.mpg.de/315083/research-collective-goods-engel" class="board-card" target="_blank" rel="noopener">
-        <div class="board-monogram">CE</div>
-        <div class="board-name">Christoph Engel</div>
-        <div class="board-title" data-i18n="board.adv8_title">Director Emeritus</div>
-        <div class="board-role">Max Planck Institute for Research on Collective Goods, Bonn</div>
+      <a href="https://www.mpg.de/315083/research-collective-goods-engel" class="advisor-row" target="_blank" rel="noopener">
+        <span class="advisor-name">Christoph Engel</span>, <span class="advisor-title" data-i18n="board.adv8_title">Director Emeritus</span>, <span class="advisor-role">Max Planck Institute for Research on Collective Goods, Bonn</span>
       </a>
     </div>
   </div>

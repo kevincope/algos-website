@@ -359,6 +359,18 @@
     font-style: italic; font-weight: 300;
     color: var(--ink-light); font-size: 0.95rem;
   }
+  .advisors-list { display: grid; gap: 0; }
+  .advisor-row {
+    display: block; padding: 0.9rem 0;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none; color: inherit;
+    font-size: 0.95rem;
+  }
+  .advisors-list .advisor-row:first-child { border-top: 1px solid var(--line); }
+  .advisor-row:hover .advisor-name { text-decoration: underline; text-decoration-color: var(--amber-deep); }
+  .advisor-name { font-weight: 700; color: var(--white); }
+  .advisor-title { color: var(--amber); }
+  .advisor-role { color: var(--ink-light); font-weight: 300; }
   .board-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
