@@ -956,12 +956,18 @@ function applyTranslations() {
 }
 
 // ── IN THE MEDIA ──
-// { title, url, date: 'YYYY-MM-DD', outlet, member, type: 'news'|'podcast'|'interview'|'blog' }
+// { title, url, date: 'YYYY-MM-DD', precision?: 'month' (show month+year only), outlet, member, type: 'news'|'podcast'|'interview'|'blog' }
 const mediaItems = [
   { title: "An AI system helped Pakistani judges clear massive backlogs at $38.50 return per dollar invested", url: "https://the-decoder.com/an-ai-system-helped-pakistani-judges-clear-massive-backlogs-at-38-50-return-per-dollar-invested/", date: "2026-07-21", outlet: "The Decoder", member: "Elliott Ash", type: "news" },
   { title: "Study finds AI use in trial courts results in over 6pc more cases resolved annually", url: "https://www.dawn.com/news/2016213", date: "2026-07-17", outlet: "DAWN", member: "Elliott Ash", type: "news" },
   { title: "Invitation to cheat: AI outperforms law professors in Stanford study", url: "https://www.scottishlegal.com/articles/invitation-to-cheat-ai-outperforms-law-professors-in-stanford-study", date: "2026-06-04", outlet: "Scottish Legal News", member: "Julian Nyarko", type: "news" },
   { title: "Law professors prefer AI over colleagues' answers 75% of the time, says Stanford study", url: "https://theprint.in/feature/law-professors-ai-colleagues-stanford-study/2949716/", date: "2026-06-03", outlet: "ThePrint", member: "Julian Nyarko", type: "news" },
+  { title: "A Better Place to Be: AI and the Law \u2014 AI Use and Its Impact on Understanding and Performance", url: "https://hullandhull.com/2026/06/a-better-place-to-be-ai-and-the-law-ai-use-and-its-impact-on-understanding-and-performance/", date: "2026-06-30", outlet: "Hull and Hull LLP", member: "Daniel Schwarcz", type: "podcast" },
+  { title: "UVA Law professor weighs role of AI in the classroom", url: "https://www.cbs19news.com/news/uva-law-professor-weighs-role-of-ai-in-the-classroom/article_4faad42a-b5d8-4fdf-8898-6e7761f21fb9.html", date: "2026-03-31", outlet: "CBS19 News", member: "Kevin Cope", type: "news" },
+  { title: "Generative AI is now capable of grading law school exams; what\u2019s next?", url: "https://legaltalknetwork.com/podcasts/aba-journal-legal-rebels/2026/02/generative-ai-is-now-capable-of-grading-law-school-exams-whats-next/", date: "2026-02-18", outlet: "ABA Journal Legal Rebels", member: "Daniel Schwarcz", type: "podcast" },
+  { title: "Pioneers and Pathfinders: Dan Linna Returns", url: "https://www.seyfarth.com/news-insights/pioneers-and-pathfinders-dan-linna-returns.html", date: "2026-02-01", precision: "month", outlet: "Seyfarth", member: "Dan Linna", type: "podcast" },
+  { title: "AI Can Grade Law School Exams About As Well As Professors", url: "https://www.bespacific.com/?p=119755", date: "2025-12-09", outlet: "beSpacific", member: "Kevin Cope et al.", type: "blog" },
+  { title: "Does Artificial Intelligence Have a Role in Legal Scholarship?", url: "https://www.abajournal.com/web/article/does-ai-have-a-role-in-legal-scholarship", date: "2025-05-02", outlet: "ABA Journal", member: "Dan Linna", type: "news" },
   // UNVERIFIED (page blocked automated access; URL/date from search results): Forbes
   { title: "Stanford Study Finds AI Beats Law Professors 75% Of The Time", url: "https://www.forbes.com/sites/aliciapark/2026/06/02/stanford-study-finds-ai-beats-law-professors-75-of-the-time/", date: "2026-06-02", outlet: "Forbes", member: "Julian Nyarko", type: "news" },
   { title: "Professor Daniel W. Linna, Fellow, Has Research Cited by Multiple News Outlets", url: "https://www.americanbarfoundation.org/professor-daniel-w-linna-fellow-has-research-cited-by-multiple-news-outlets/", date: "2026-05-28", outlet: "American Bar Foundation", member: "Dan Linna", type: "news" },
@@ -988,7 +994,7 @@ function renderMedia() {
   }
   items.forEach(m => {
     const item = document.createElement('div'); item.className = 'blog-item';
-    const date = document.createElement('div'); date.className = 'blog-date'; date.textContent = new Date(m.date + 'T00:00:00').toLocaleDateString(currentLang, { month: 'short', day: 'numeric', year: 'numeric' });
+    const date = document.createElement('div'); date.className = 'blog-date'; date.textContent = new Date(m.date + 'T00:00:00').toLocaleDateString(currentLang, m.precision === 'month' ? { month: 'short', year: 'numeric' } : { month: 'short', day: 'numeric', year: 'numeric' });
     const body = document.createElement('div');
     const type = document.createElement('div'); type.className = 'blog-type'; type.textContent = t('media.type_' + m.type);
     const title = document.createElement('div'); title.className = 'blog-title';
